@@ -1,0 +1,13 @@
+{% if latest_candidate_list %}
+<head>
+	Latest submited candidates.
+</head>
+    <ul>
+    {% for person in latest_candidate_list %}
+        <li><a href="/recruter/profile/{{ person.name }}_{{person.surname}}/">{{ person.name }} 
+        {{person.surname }} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No candidates are available.</p>
+{% endif %}

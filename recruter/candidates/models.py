@@ -3,10 +3,12 @@ from django.db import models
 
 class Technology(models.Model):
     tech = models.CharField(max_length=50)
-
+    def __unicode__(self):
+        return self.tech
 
 class Candidate(models.Model):
     name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
     current_company = models.CharField(max_length=30)
     date_added = models.DateField(auto_now=True)
@@ -29,3 +31,5 @@ class Candidate(models.Model):
 
     specification = models.ManyToManyField(Technology)
 
+    def __unicode__(self):
+        return self.name + self.surname
